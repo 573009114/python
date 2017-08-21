@@ -58,11 +58,11 @@ Optional plotz says to frobnicate the bizbaz first.
 13 类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。
 
 ### 七 编码建议
-1.  编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。
-1.  尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。
-1.  使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。
-1.  异常中不要使用裸露的except，except后跟具体的exceptions。
-1. 异常中try的代码尽可能少。比如：
+-   编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。
+-   尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。
+-   使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。
+-   异常中不要使用裸露的except，except后跟具体的exceptions。
+-  异常中try的代码尽可能少。比如：
 ```
 try:
 value = collection[key]
@@ -80,20 +80,20 @@ except KeyError:
 # Will also catch KeyError raised by handle_value()
 return key_not_found(key)
 ```
-6 使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如
-
-Yes: if foo.startswith(‘bar’):优于
-No: if foo[:3] == ‘bar’:
-7 使用isinstance()比较对象的类型。比如
-Yes: if isinstance(obj, int): 优于
-No: if type(obj) is type(1):
-8 判断序列空或不空，有如下规则
-Yes: if not seq:
-if seq:
-优于
-```
-No: if len(seq)
-if not len(seq)
-```
-9 字符串不要以空格收尾。
-10 二进制数据判断使用 if boolvalue的方式。
+- 6 使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如
+- 
+- Yes: if foo.startswith(‘bar’):优于
+- No: if foo[:3] == ‘bar’:
+- 7 使用isinstance()比较对象的类型。比如
+- Yes: if isinstance(obj, int): 优于
+- No: if type(obj) is type(1):
+- 8 判断序列空或不空，有如下规则
+- Yes: if not seq:
+- if seq:
+- 优于
+- ```
+- No: if len(seq)
+- if not len(seq)
+- ```
+- 9 字符串不要以空格收尾。
+- 10 二进制数据判断使用 if boolvalue的方式。
