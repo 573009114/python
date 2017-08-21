@@ -80,14 +80,14 @@ except KeyError:
 # Will also catch KeyError raised by handle_value()
 return key_not_found(key)
 ```
-- 6 使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如
+- 使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如
 - 
 - Yes: if foo.startswith(‘bar’):优于
 - No: if foo[:3] == ‘bar’:
-- 7 使用isinstance()比较对象的类型。比如
+- 使用isinstance()比较对象的类型。比如
 - Yes: if isinstance(obj, int): 优于
 - No: if type(obj) is type(1):
-- 8 判断序列空或不空，有如下规则
+- 判断序列空或不空，有如下规则
 - Yes: if not seq:
 - if seq:
 - 优于
@@ -95,5 +95,5 @@ return key_not_found(key)
 - No: if len(seq)
 - if not len(seq)
 - ```
-- 9 字符串不要以空格收尾。
-- 10 二进制数据判断使用 if boolvalue的方式。
+- 字符串不要以空格收尾。
+- 二进制数据判断使用 if boolvalue的方式。
