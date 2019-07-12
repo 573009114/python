@@ -1,0 +1,22 @@
+#!/usr/bin/python
+import requests
+import json
+
+cookie = requests.cookies.RequestsCookieJar()
+cookie.set('_discuz_uid','152297961',path='/',domain='.xxxx.com')
+cookie.set('_discuz_pw','5b11681612234c6932023d09caf505e8ea',path='/',domain='.xxxx.com')
+cookie.set('bbs_auth','XBnl5VIsqhYPNiZ16p9Esg4y4H6M5xn1tPCHZ78fRAnkOjjal47IK%2F4bRKkevbVNCDg',path='/',domain='.xxxx.com')
+
+headers={
+    'xbbs-abtest':'b',
+}
+
+url='http://www.xxxx.com/bbs/xxxx/viewthread/recommend.php'
+
+data={
+    "tid":90652790,
+}
+
+
+r=requests.post(url, data,cookies=cookie,headers=headers)
+print(json.loads(r.text))
