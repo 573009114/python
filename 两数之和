@@ -1,0 +1,19 @@
+class Solution:
+    def twoSum(nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        res = {}
+        for i in range(len(nums)):
+            if nums[i] in res.keys():
+                return [res[nums[i]], i]
+            else:
+                res[target - nums[i]]= i
+
+if __name__ == '__main__':
+    target = 18
+    nums=[2,7,11,15]
+
+    print(Solution.twoSum(nums,target))
