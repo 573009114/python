@@ -38,3 +38,20 @@ request = urllib.request.Request(posturl, postData, headers)
 response = urllib.request.urlopen(request)
 text = response.read().decode()
 print(text)
+
+
+### 或者
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import requests
+# 登录的主页面
+
+hosturl = 'http://zabbix.xxx.com.cn'  # 自己填写
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0','Referer': 'http://zabbix.xxx.com.cn/index.php'}
+postData = {"name": 'hao.wen',
+            "password": '12[cfs)w"(',
+            "autologin": 1,
+            "enter": "Sign in"}
+s=requests.post(hosturl,data=postData,headers=headers)
+print(s.content)
+
